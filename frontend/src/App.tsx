@@ -25,6 +25,7 @@ const App: React.FC = () => {
 
   const handleTemplateSelect = (template: Template) => {
     setSelectedTemplate(template);
+    setUserInfo(null);
   };
 
   const handleUserFormSubmit = (userInfo: UserInfo) => {
@@ -35,7 +36,7 @@ const App: React.FC = () => {
     <div className="App">
       <h1> Email Signature Engine </h1>
       <SelectTemplate onTemplateSelect={handleTemplateSelect} />
-      {selectedTemplate && userInfo && (
+      {selectedTemplate && !userInfo && (
         <UserFormSignature onSubmit={handleUserFormSubmit} />
       )}
       {selectedTemplate && userInfo && (
