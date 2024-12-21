@@ -5,14 +5,20 @@ import cors from 'cors';
 
 const app = express();
 
+app.use(
+  cors({
+    origin: 'http://localhost:3000',
+    methods: 'GET,POST,PUT,DELETE',
+    credentials: true,
+  })
+);
+
 // Middleware: JSON parsing
 app.use(express.json());
 
 //  routes
-app.use('/api/signature', signatureRoutes);
+app.use('/api', signatureRoutes);
 
 app.use(errorHandler);
-
-app.use(cors());
 
 export default app;
