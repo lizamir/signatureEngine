@@ -15,19 +15,27 @@ interface SelectTemplateProps {
 const SelectTemplate: React.FC<SelectTemplateProps> = ({
   onTemplateSelect,
 }) => {
-  const templates: Template[] = [
-    {
-      id: '1',
-      name: 'templateVersion1',
-      urlImage: 'https://via.placeholder.com/150?text=Logo+1',
-    },
-    {
-      id: '2',
-      name: 'templateVersion2',
-      urlImage: 'https://via.placeholder.com/150?text=Logo+2',
-    },
-  ];
+  const [templates, setTemplates] = useState<Template[]>([]);
+  const [loading, setLoading] = useState(true);
 
+  useEffect(() => {
+    const fetchTemplates = async () => {
+      try {
+        const data = await getTemplates();
+        setTemplates(data);
+      } catch (error) {
+        console.error('error getting templates', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchTemplates();
+  }, []);
+
+  if (loading) {
+    return <div> Loading templates...</div>;
+  }
   return (
     <div className="template-list">
       {templates.map((template) => (
