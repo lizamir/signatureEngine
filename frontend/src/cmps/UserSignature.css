@@ -1,0 +1,26 @@
+.user-signature {
+  max-width: 400px;
+  margin: 20px auto;
+  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 20px;
+  background-color: #fff;
+}
+
+.user-signature img {
+  width: 100px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.user-signature h3 {
+  margin: 10px 0;
+  font-size: 1.2em;
+  color: #333;
+}
+
+.user-signature p {
+  margin: 5px 0;
+  color: #555;
+}

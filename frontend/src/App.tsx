@@ -1,24 +1,51 @@
-import React from 'react';
+import React, { useState } from 'react';
+import SelectTemplate from './cmps/SelectTemplate';
+import UserFormSignature from './cmps/UserFormSignature';
+import UserSignature from './cmps/UserSignature';
 import './App.css';
 
-function App() {
+interface Template {
+  id: string;
+  name: string;
+  urlImage: string;
+}
+
+interface UserInfo {
+  name: string;
+  email: string;
+  phone: string;
+}
+
+const App: React.FC = () => {
+  const [selectedTemplate, setSelectedTemplate] = useState<Template | null>(
+    null
+  );
+
+  const [userInfo, setUserInfo] = useState<UserInfo | null>(null);
+
+  const handleTemplateSelect = (template: Template) => {
+    setSelectedTemplate(template);
+  };
+
+  const handleUserFormSubmit = (userInfo: UserInfo) => {
+    setUserInfo(userInfo);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1> Email Signature Engine </h1>
+      <SelectTemplate onTemplateSelect={handleTemplateSelect} />
+      {selectedTemplate && userInfo && (
+        <UserFormSignature onSubmit={handleUserFormSubmit} />
+      )}
+      {selectedTemplate && userInfo && (
+        <UserSignature
+          userInfo={userInfo}
+          selectedTemplate={selectedTemplate}
+        />
+      )}
     </div>
   );
-}
+};
 
 export default App;
