@@ -1,6 +1,7 @@
 import express from 'express';
 import signatureRoutes from './routes/signatureRoutes';
 import { errorHandler } from './middlewares/errorHandler';
+import cors from 'cors';
 
 const app = express();
 
@@ -11,5 +12,7 @@ app.use(express.json());
 app.use('/api/signature', signatureRoutes);
 
 app.use(errorHandler);
+
+app.use(cors());
 
 export default app;
