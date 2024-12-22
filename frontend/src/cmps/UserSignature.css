@@ -1,26 +1,25 @@
 .user-signature {
-  max-width: 400px;
-  margin: 20px auto;
   text-align: center;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  padding: 20px;
-  background-color: #fff;
+  margin: 20px;
 }
 
 .user-signature img {
-  width: 100px;
-  border-radius: 10px;
-  margin-bottom: 10px;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
 }
 
-.user-signature h3 {
-  margin: 10px 0;
-  font-size: 1.2em;
-  color: #333;
+.plain-text-signature {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  text-align: left;
 }
 
-.user-signature p {
-  margin: 5px 0;
-  color: #555;
+.plain-text-signature pre {
+  font-family: monospace;
+  white-space: pre-wrap;
+  word-wrap: break-word;
 }
