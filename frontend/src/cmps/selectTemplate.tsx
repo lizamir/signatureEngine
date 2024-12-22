@@ -17,6 +17,7 @@ const SelectTemplate: React.FC<SelectTemplateProps> = ({
 }) => {
   const [templates, setTemplates] = useState<Template[]>([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchTemplates = async () => {
@@ -36,6 +37,9 @@ const SelectTemplate: React.FC<SelectTemplateProps> = ({
   if (loading) {
     return <div> Loading templates...</div>;
   }
+  if (error) {
+    return <div className="error-message"> {error}</div>;
+  }
   return (
     <div className="template-list">
       {templates.map((template) => (
@@ -43,10 +47,9 @@ const SelectTemplate: React.FC<SelectTemplateProps> = ({
           key={template.id}
           className="template-item"
           onClick={() => onTemplateSelect(template)}
-          style={{ cursor: 'pointer' }}
         >
           <img src={template.urlImage} alt={template.name} />
-          <p>{template.name}</p>
+          <p className="template-name">{template.name}</p>
         </div>
       ))}
     </div>

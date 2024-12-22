@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './UserFormSignature.css';
 interface UserInfo {
   name: string;
@@ -16,6 +16,22 @@ const UserFormSignature: React.FC<UserFormSignatureProps> = ({ onSubmit }) => {
     email: '',
     phone: '',
   });
+  const [errors, setErrors] = useState<UserInfo>({
+    name: '',
+    email: '',
+    phone: '',
+  });
+
+  const validate = () => {
+    const newErrors = { name: '', email: '', phone: '' };
+    if (!formData.name) newErrors.name = 'Name is required';
+    if (!formData.email || !/\S+@\S+\.\S+/.test(formData.email))
+      newErrors.email = 'Valid email is required';
+    if (!formData.phone || !/^\d{10}$/.test(formData.phone))
+      newErrors.phone = 'Valid phone number is required';
+    setErrors(newErrors);
+    return !Object.values(newErrors).some((err) => err !== '');
+  };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -24,20 +40,22 @@ const UserFormSignature: React.FC<UserFormSignatureProps> = ({ onSubmit }) => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    onSubmit(formData);
+    if (validate()) {
+      onSubmit(formData);
+    }
   };
 
   return (
     <form onSubmit={handleSubmit} className="user-form">
       <div>
-        <label>Name</label>
+        <label htmlFor="name">Name</label>
         <input
           type="text"
           name="name"
           value={formData.name}
           onChange={handleChange}
-          required
         />
+        {errors.name && <p style={{ color: 'red' }}> {errors.name}</p>}
       </div>
       <div>
         <label>Email</label>
@@ -48,6 +66,7 @@ const UserFormSignature: React.FC<UserFormSignatureProps> = ({ onSubmit }) => {
           onChange={handleChange}
           required
         />
+        {errors.email && <p style={{ color: 'red' }}> {errors.email}</p>}
       </div>
       <div>
         <label>Phone</label>
@@ -58,6 +77,7 @@ const UserFormSignature: React.FC<UserFormSignatureProps> = ({ onSubmit }) => {
           onChange={handleChange}
           required
         />
+        {errors.email && <p style={{ color: 'red' }}> {errors.email}</p>}
       </div>
       <button type="submit"> Generate Signature</button>
     </form>
