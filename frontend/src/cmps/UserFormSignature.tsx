@@ -58,7 +58,7 @@ const UserFormSignature: React.FC<UserFormSignatureProps> = ({ onSubmit }) => {
         {errors.name && <p style={{ color: 'red' }}> {errors.name}</p>}
       </div>
       <div>
-        <label>Email</label>
+        <label htmlFor="email">Email</label>
         <input
           type="text"
           name="email"
@@ -69,7 +69,7 @@ const UserFormSignature: React.FC<UserFormSignatureProps> = ({ onSubmit }) => {
         {errors.email && <p style={{ color: 'red' }}> {errors.email}</p>}
       </div>
       <div>
-        <label>Phone</label>
+        <label htmlFor="phone">Phone</label>
         <input
           type="tel"
           name="phone"
@@ -77,7 +77,7 @@ const UserFormSignature: React.FC<UserFormSignatureProps> = ({ onSubmit }) => {
           onChange={handleChange}
           required
         />
-        {errors.email && <p style={{ color: 'red' }}> {errors.email}</p>}
+        {errors.phone && <p style={{ color: 'red' }}> {errors.phone}</p>}
       </div>
       <button type="submit"> Generate Signature</button>
     </form>

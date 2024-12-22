@@ -18,10 +18,17 @@ export const generateSignature = async (
   templateId: string,
   userInfo: { name: string; email: string; phone: string }
 ) => {
+  console.log('Sending request to /generate with:', {
+    templateId,
+    ...userInfo,
+  }); // Debug
+
   const response = await apiClient.post('/generate', {
     templateVersion: templateId,
     ...userInfo,
   });
+  console.log('Response from /generate:', response.data); // Debug
+
   return response.data;
 };
 

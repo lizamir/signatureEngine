@@ -38,6 +38,8 @@ const App: React.FC = () => {
   const handleUserFormSubmit = async (userInfo: UserInfo) => {
     setUserInfo(userInfo);
     if (selectedTemplate) {
+      console.log('Selected Template:', selectedTemplate); // Debug
+      console.log('User Info:', userInfo); // Debug
       try {
         const result = await generateSignature(selectedTemplate.id, userInfo);
         console.log('Generated signature:', result);
