@@ -8,11 +8,17 @@ export const signatureController = async (
   const { name, email, phone, templateVersion } = req.body;
 
   if (!name || !email || !phone || !templateVersion) {
-    throw { status: 400, message: 'Missing required fields' };
+    res.status(400).json({ error: 'Missing required fields' });
+    return;
   }
 
-  const compiledTemplate = getTemplate(templateVersion);
-  const htmlSignature = compiledTemplate({ name, email, phone });
+  const template = getTemplate(templateVersion);
+  if (!template) {
+    res.status(404).json({ error: `Template ${templateVersion} not found` });
+    return;
+  }
+
+  const htmlSignature = template({ name, email, phone });
 
   const plainTextSignature = `Name: ${name} \n
                                 Email : ${email}\n

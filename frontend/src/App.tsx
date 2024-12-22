@@ -40,8 +40,8 @@ const App: React.FC = () => {
     if (selectedTemplate) {
       try {
         const result = await generateSignature(selectedTemplate.id, userInfo);
-        setGeneratedSignature(result);
         console.log('Generated signature:', result);
+        setGeneratedSignature(result);
       } catch (error) {
         console.error('Error generating signature:', error);
       }
