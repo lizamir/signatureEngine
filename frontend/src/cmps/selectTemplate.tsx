@@ -6,14 +6,18 @@ interface Template {
   id: string;
   name: string;
   urlImage: string;
+  description: string; // הוספת תיאור
+  textColor: string; // צבע ייחודי
 }
 
 interface SelectTemplateProps {
   onTemplateSelect: (template: Template) => void;
+  selectedTemplate: Template | null;
 }
 
 const SelectTemplate: React.FC<SelectTemplateProps> = ({
   onTemplateSelect,
+  selectedTemplate,
 }) => {
   const [templates, setTemplates] = useState<Template[]>([]);
   const [loading, setLoading] = useState(true);
@@ -45,11 +49,16 @@ const SelectTemplate: React.FC<SelectTemplateProps> = ({
       {templates.map((template) => (
         <div
           key={template.id}
-          className="template-item"
+          className={`template-item ${
+            selectedTemplate?.id === template.id ? 'selected' : ''
+          }`}
           onClick={() => onTemplateSelect(template)}
         >
           <img src={template.urlImage} alt={template.name} />
-          <p className="template-name">{template.name}</p>
+          <p className="template-name" style={{ color: template.textColor }}>
+            {template.name}
+          </p>
+          <p className="template-description">{template.description}</p>
         </div>
       ))}
     </div>

@@ -47,6 +47,7 @@ const UserFormSignature: React.FC<UserFormSignatureProps> = ({ onSubmit }) => {
 
   return (
     <form onSubmit={handleSubmit} className="user-form">
+      <h2>Fill in your details to generate your signature:</h2>
       <div>
         <label htmlFor="name">Name</label>
         <input
@@ -54,6 +55,7 @@ const UserFormSignature: React.FC<UserFormSignatureProps> = ({ onSubmit }) => {
           name="name"
           value={formData.name}
           onChange={handleChange}
+          placeholder="Enter your full name"
         />
         {errors.name && <p style={{ color: 'red' }}> {errors.name}</p>}
       </div>
@@ -64,7 +66,7 @@ const UserFormSignature: React.FC<UserFormSignatureProps> = ({ onSubmit }) => {
           name="email"
           value={formData.email}
           onChange={handleChange}
-          required
+          placeholder="Enter your email"
         />
         {errors.email && <p style={{ color: 'red' }}> {errors.email}</p>}
       </div>
@@ -75,11 +77,11 @@ const UserFormSignature: React.FC<UserFormSignatureProps> = ({ onSubmit }) => {
           name="phone"
           value={formData.phone}
           onChange={handleChange}
-          required
+          placeholder="Enter your phone number"
         />
         {errors.phone && <p style={{ color: 'red' }}> {errors.phone}</p>}
       </div>
-      <button type="submit"> Generate Signature</button>
+      <button type="submit">Generate Signature</button>
     </form>
   );
 };

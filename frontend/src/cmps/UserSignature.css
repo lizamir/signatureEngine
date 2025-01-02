@@ -1,25 +1,43 @@
 .user-signature {
   text-align: center;
-  margin: 20px;
+  margin: 20px 0;
 }
 
-.user-signature img {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
+.template-image {
+  max-width: 200px;
+  margin-bottom: 10px;
+}
+
+.combined-signature {
+  margin-top: 20px;
+}
+
+.combined-signature-image {
+  max-width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 8px;
 }
 
 .plain-text-signature {
   margin-top: 20px;
-  padding: 10px;
-  background-color: #f9f9f9;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  text-align: left;
+}
+.combined-signature-image {
+  max-width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-bottom: 10px;
 }
 
-.plain-text-signature pre {
-  font-family: monospace;
-  white-space: pre-wrap;
-  word-wrap: break-word;
+.plain-text-signature button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  margin-top: 10px;
+  border-radius: 4px;
+}
+
+.plain-text-signature button:hover {
+  background-color: #45a049;
 }

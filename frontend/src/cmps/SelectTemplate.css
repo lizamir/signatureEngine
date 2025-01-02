@@ -26,6 +26,16 @@
   border-radius: 8px;
 }
 
+.template-item.selected {
+  border-color: #4caf50;
+  background-color: #f0fff0;
+}
+
+.template-description {
+  font-size: 0.9em;
+  color: #666;
+}
+
 .template-name {
   font-weight: bold;
   margin-top: 10px;
