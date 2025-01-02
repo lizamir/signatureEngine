@@ -1,9 +1,75 @@
-h1 {
+body {
+  background: linear-gradient(135deg, #e3f2fd, #f0f4c3);
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Assistant', sans-serif;
+}
+
+.App {
   text-align: center;
-  margin-top: 20px;
-  font-size: 28px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  width: 90%;
+  max-width: 600px;
+}
+
+h1 {
+  font-size: 2.5em;
   color: #333;
-  font-family: 'Arial', sans-serif;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.dropzone {
+  border: 2px dashed #ccc;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 20px auto;
+  width: 80%;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+}
+
+.dropzone:hover {
+  border-color: #4caf50;
+}
+
+.signatureCanvas {
+  border: 2px solid #4caf50;
+  border-radius: 8px;
+  width: 80%;
+  height: 200px;
+  margin: 20px auto;
+  display: block;
+}
+
+button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 1em;
+  cursor: pointer;
+  margin: 10px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background-color: #45a049;
+  transform: scale(1.05);
+}
+
+.uploaded-image {
+  max-width: 80%;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  margin: 20px auto;
+  display: block;
 }
