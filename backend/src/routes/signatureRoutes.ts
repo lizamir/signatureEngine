@@ -15,14 +15,14 @@ router.get('/templates', (req, res) => {
     {
       id: '1',
       name: 'Template Version 1',
-      urlImage: '/path/to/template1.png',
+      urlImage: '/images/template1.png',
       description: 'Professional template with modern design',
       textColor: '#000',
     },
     {
       id: '2',
       name: 'Template Version 2',
-      urlImage: '/path/to/template2.png',
+      urlImage: '/images/template2.png',
       description: 'Creative template with vibrant colors',
       textColor: '#4CAF50',
     },
